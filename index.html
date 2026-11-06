@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vihanga & Rashmi Royal Wedding Invitation</title>
+
+<!-- Google Fonts: Great Vibes & Cormorant Garamond & Montserrat -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ====================================
+   BURGUNDY & MAROON WITH GOLD ACCENTS THEME
+==================================== */
+
+:root {
+  --white: #FFFFFF;
+  --soft-white: #FAF6F7;
+  --maroon: #6B1D2F;
+  --deep-maroon: #4A121E;
+  --gold: #D4AF37;
+  --light-gold: #F3E5AB;
+  --rose: #A35C6D;
+  --text: #3D101A;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-image: url('Background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: "Cormorant Garamond", serif;
+  overflow-x: hidden;
+  background-color: #FAF6F7;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ====================================
+   1. FIRST DISPLAY: COUPLE VIDEO ANIMATION WITH FLOATING MAROON HEARTS
+==================================== */
+
+#coupleScene {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #FAF6F7;
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+#coupleScene.fade {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#coupleVideo {
+  width: min(92vw, 650px);
+  max-height: 75vh;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+
+.couple-caption {
+  font-family: "Great Vibes", cursive;
+  color: var(--maroon);
+  font-size: 42px;
+  margin-top: 15px;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+/* WATCH ANIMATION BUTTON WITH HOVER EFFECT */
+.start-btn {
+  margin-top: 20px;
+  padding: 14px 32px;
+  background: var(--maroon);
+  color: var(--white);
+  border: 1px solid var(--gold);
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(107, 29, 47, 0.3);
+}
+
+.start-btn:hover {
+  background: var(--deep-maroon);
+  border-color: var(--light-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.start-btn:active {
+  transform: translateY(-1px);
+}
+
+/* FLOATING MAROON HEARTS ANIMATION */
+.heart {
+  position: absolute;
+  color: var(--maroon);
+  user-select: none;
+  pointer-events: none;
+  z-index: 1;
+  top: -10%;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+/* ====================================
+   2. SECOND DISPLAY: ROYAL ENVELOPE OPENING
+==================================== */
+
+#opening {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.95) 30%,
+      rgba(242, 227, 230, 0.95) 100%
+    );
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), visibility 1s;
+}
+
+#opening.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+#opening.hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.opening-content {
+  width: min(90vw, 520px);
+  text-align: center;
+}
+
+.opening-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(42px, 8vw, 68px);
+  color: var(--maroon);
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.3);
+}
+
+.envelope {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.55;
+  perspective: 1200px;
+  filter: drop-shadow(
+    0 20px 25px rgba(74, 18, 30, 0.3)
+  );
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: var(--maroon);
+  border: 2px solid var(--gold);
+}
+
+.letter {
+  position: absolute;
+  width: 83%;
+  height: 88%;
+  left: 8.5%;
+  top: 8%;
+  z-index: 2;
+  background: #FFFFFF;
+  border: 3px double var(--gold);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 1.5s ease 0.6s;
+  padding: 10px;
+}
+
+.letter small {
+  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--maroon);
+}
+
+.letter strong {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(32px, 7vw, 48px);
+  color: var(--maroon);
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: var(--maroon);
+  clip-path: polygon(
+    0 0,
+    50% 52%,
+    100% 0,
+    100% 100%,
+    0 100%
+  );
+  border-bottom: 3px solid var(--gold);
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  background: var(--deep-maroon);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    50% 57%
+  );
+  transform-origin: top;
+  transition: transform 1.1s ease;
+  border-bottom: 2px solid var(--gold);
+}
+
+/* WAX SEAL HOVER EFFECT */
+.wax-seal {
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #E6C687,
+      #997A2A
+    );
+  border: 5px double var(--white);
+  color: var(--deep-maroon);
+  font-size: 34px;
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+  transition: all 0.3s ease;
+  animation: sealPulse 2s infinite;
+}
+
+.wax-seal:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
+  background: radial-gradient(circle at 35% 30%, #fff2cb, #c5a044);
+}
+
+@keyframes sealPulse {
+  50% {
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  }
+}
+
+.envelope.open .wax-seal {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+
+.envelope.open .letter {
+  transform: translateY(-45%);
+}
+
+.opening-hint {
+  margin-top: 35px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--deep-maroon);
+}
+
+/* ====================================
+   3. MAIN WEBSITE
+==================================== */
+
+#website {
+  display: none;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+
+#website.visible {
+  display: block;
+  opacity: 1;
+}
+
+/* HERO SECTION */
+
+.hero {
+  min-height: 100vh;
+  padding: 90px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.9),
+      rgba(250, 246, 247, 0.9)
+    );
+  border: 14px solid var(--light-gold);
+  outline: 2px solid var(--gold);
+  outline-offset: -24px;
+  position: relative;
+  margin-bottom: 25px;
+  box-shadow: inset 0 0 30px rgba(212, 175, 55, 0.15);
+}
+
+.ornament {
+  color: var(--gold);
+  font-size: 38px;
+  margin: 12px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.eyebrow {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--deep-maroon);
+}
+
+.hero h1 {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(65px, 14vw, 115px);
+  color: var(--maroon);
+  font-weight: normal;
+  margin: 20px 0;
+  line-height: 1.2;
+  text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.25);
+}
+
+.hero h1 span {
+  display: block;
+  font-size: 0.6em;
+  color: var(--gold);
+  margin: 10px 0;
+}
+
+.parents-text {
+  font-size: 22px;
+  line-height: 1.8;
+  max-width: 650px;
+  margin: 15px 0;
+  font-style: italic;
+}
+
+.parents-text strong {
+  font-family: "Great Vibes", cursive;
+  font-size: 44px;
+  color: var(--maroon);
+  font-weight: normal;
+}
+
+.hero-date-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 25px 0;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  padding: 15px 25px;
+  background: rgba(243, 229, 171, 0.15);
+}
+
+.hero-date-box div {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-date-box .big-date {
+  font-family: "Great Vibes", cursive;
+  font-size: 65px;
+  color: var(--maroon);
+  line-height: 1;
+}
+
+.maroon-line {
+  width: 120px;
+  height: 2px;
+  background: var(--gold);
+  margin: 24px auto;
+  box-shadow: 0 0 5px var(--gold);
+}
+
+/* COMMON SECTIONS */
+
+.section {
+  padding: 85px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto 25px auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  backdrop-filter: blur(2px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.section h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 65px;
+  font-weight: normal;
+  color: var(--maroon);
+  margin: 10px 0 25px;
+  text-shadow: 1px 1px 2px rgba(212, 175, 55, 0.2);
+}
+
+.section p {
+  font-size: 24px;
+  line-height: 1.8;
+}
+
+/* COUNTDOWN */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 35px;
+}
+
+.time-box {
+  width: 110px;
+  padding: 20px 10px;
+  border: 2px solid var(--gold);
+  background: var(--white);
+  box-shadow: 0 4px 10px rgba(212, 175, 55, 0.15);
+}
+
+.time-box strong {
+  display: block;
+  font-size: 42px;
+  color: var(--maroon);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.time-box span {
+  font-family: Montserrat, sans-serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* GALLERY WITH 4 IMAGES GRID */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 35px;
+}
+
+@media (min-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gallery-item {
+  aspect-ratio: 3 / 4;
+  border: 2px solid var(--gold);
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: #F2E3E6;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* VENUE */
+
+.maroon-section {
+  background: var(--maroon);
+  color: white;
+  padding: 75px 20px;
+  text-align: center;
+  margin-bottom: 25px;
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+}
+
+.maroon-section h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 65px;
+  font-weight: normal;
+  margin: 10px 0;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.venue-name {
+  font-size: 36px;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  color: var(--light-gold);
+}
+
+.maroon-section .ornament {
+  color: var(--gold);
+}
+
+/* ====================================
+   GENERAL ROYAL BUTTONS WITH HOVER EFFECTS
+==================================== */
+
+.royal-button {
+  display: inline-block;
+  padding: 16px 36px;
+  margin: 20px 0;
+  background: var(--maroon);
+  color: white;
+  border: 1px solid var(--gold);
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  border-radius: 4px;
+}
+
+.royal-button:hover {
+  background: var(--deep-maroon);
+  border-color: var(--light-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.royal-button:active {
+  transform: translateY(-1px);
+}
+
+/* WHITE BUTTON HOVER EFFECT FOR VENUE SECTION */
+.maroon-section .royal-button {
+  background: var(--white);
+  color: var(--maroon);
+  border: 2px solid var(--gold);
+  font-weight: 700;
+}
+
+.maroon-section .royal-button:hover {
+  background: var(--soft-white);
+  border-color: var(--light-gold);
+  color: var(--deep-maroon);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.6);
+}
+
+/* RSVP */
+
+.rsvp-form {
+  max-width: 450px;
+  margin: 30px auto;
+  display: grid;
+  gap: 15px;
+}
+
+.rsvp-form input,
+.rsvp-form select {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid var(--gold);
+  background: white;
+  font-family: Montserrat, sans-serif;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus {
+  outline: none;
+  border-color: var(--maroon);
+  box-shadow: 0 0 8px rgba(107, 29, 47, 0.2);
+}
+
+.rsvp-form .royal-button {
+  width: 100%;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 55px 20px;
+  background: rgba(250, 246, 247, 0.95);
+  color: var(--maroon);
+  border-top: 1px solid var(--gold);
+}
+
+footer h2 {
+  font-family: "Great Vibes", cursive;
+  font-size: 54px;
+  font-weight: normal;
+}
+
+/* MOBILE RESPONSIVE OPTIMIZATIONS */
+
+@media (max-width: 600px) {
+  .wax-seal {
+    width: 65px;
+    height: 65px;
+    font-size: 28px;
+  }
+
+  .section {
+    padding: 55px 15px;
+  }
+
+  .section h2 {
+    font-size: 50px;
+  }
+
+  .parents-text {
+    font-size: 20px;
+  }
+
+  .parents-text strong {
+    font-size: 38px;
+  }
+
+  .time-box {
+    width: 80px;
+    padding: 15px 5px;
+  }
+
+  .time-box strong {
+    font-size: 36px;
+  }
+
+  .hero {
+    border-width: 8px;
+    padding: 60px 15px;
+  }
+
+  .hero-date-box {
+    gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .hero-date-box div {
+    font-size: 18px;
+  }
+
+  .hero-date-box .big-date {
+    font-size: 52px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ====================================
+     1. COUPLE ANIMATION (FIRST DISPLAY)
+==================================== -->
+
+<div id="coupleScene">
+
+  <video
+    id="coupleVideo"
+    playsinline
+    muted
+    autoplay
+    preload="auto">
+
+    <source
+      src="couple.webm"
+      type="video/webm">
+
+  </video>
+
+  <div class="couple-caption">
+    Our Forever Begins
+  </div>
+
+  <button class="start-btn" id="playBtn" style="display: none;">
+    Watch Animation
+  </button>
+
+</div>
+
+<!-- ====================================
+     2. ROYAL ENVELOPE (SECOND DISPLAY)
+==================================== -->
+
+<div id="opening">
+  <div class="opening-content">
+
+    <div class="opening-title">
+       Wedding Invitation
+    </div>
+
+    <div class="envelope" id="envelope">
+
+      <div class="envelope-back"></div>
+
+      <div class="letter">
+        <small>TOGETHER WITH OUR FAMILIES</small>
+        <strong>You're Invited</strong>
+        <small>TO CELEBRATE OUR WEDDING</small>
+      </div>
+
+      <div class="envelope-front"></div>
+      <div class="flap"></div>
+
+      <button
+        class="wax-seal"
+        id="waxSeal"
+        aria-label="Open wedding invitation">
+        ♥
+      </button>
+
+    </div>
+
+    <p class="opening-hint">
+      TOUCH THE WAX SEAL TO OPEN
+    </p>
+
+  </div>
+</div>
+
+<!-- ====================================
+     3. MAIN WEBSITE
+==================================== -->
+
+<main id="website">
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="ornament">♥</div>
+
+    <div class="eyebrow">
+      With the Blessings of Our Families
+    </div>
+
+    <h1>
+      Kasun
+      <span>&amp;</span>
+      Tharukshi
+    </h1>
+
+    <p class="parents-text">
+      Mr. &amp; Mrs.Bandara proudly present their beloved daughter<br>
+      <strong>Tharukshi</strong>
+    </p>
+
+    <div class="eyebrow">along with</div>
+
+    <p class="parents-text">
+      Mr. &amp; Mrs.Perera proudly present their beloved son<br>
+      <strong>Kasun</strong>
+    </p>
+
+    <div class="maroon-line"></div>
+
+    <p style="font-size: 22px;">
+      Joyfully invite you to celebrate their wedding ceremony.<br>
+      <strong>Your presence would make our special day truly complete.</strong>
+    </p>
+
+    <div class="hero-date-box">
+      <div>
+        11:00 AM<br>
+        to 4:00 PM
+      </div>
+      <div>
+        December<br>
+        <span class="big-date">20</span><br>
+        2027
+      </div>
+      <div>
+        At Our Residence...
+      </div>
+    </div>
+
+    <div class="ornament">♥</div>
+
+  </section>
+
+  <!-- LOVE STORY -->
+  <section class="section">
+
+    <div class="ornament">✦</div>
+
+    <h2>Our Love Story</h2>
+
+    <p>
+      Every love story is beautiful, but ours is our favorite. 
+      With hearts full of love and the blessings of our families, 
+      we are overjoyed to invite you to share in our celebration.
+    </p>
+
+  </section>
+
+  <!-- COUNTDOWN -->
+  <section class="section">
+
+    <div class="ornament">♥</div>
+
+    <h2>Counting Down to Forever</h2>
+
+    <div class="countdown">
+
+      <div class="time-box">
+        <strong id="days">00</strong>
+        <span>DAYS</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="hours">00</strong>
+        <span>HOURS</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="minutes">00</strong>
+        <span>MINUTES</span>
+      </div>
+
+      <div class="time-box">
+        <strong id="seconds">00</strong>
+        <span>SECONDS</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY SECTION (4 PHOTOS) -->
+  <section class="section">
+
+    <div class="ornament">✦</div>
+
+    <h2>Our Precious Moments</h2>
+
+    <p>
+      A collection of cherished memories filled with love.
+    </p>
+
+    <div class="gallery">
+
+      <div class="gallery-item">
+        <img src="photo1.jpg" alt="Vihanga & Rashmi Moment 1">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photo2.jpg" alt="Vihanga & Rashmi Moment 2">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photo3.jpg" alt="Vihanga & Rashmi Moment 3">
+      </div>
+
+      <div class="gallery-item">
+        <img src="photo4.jpg" alt="Vihanga & Rashmi Moment 4">
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- VENUE -->
+  <section class="maroon-section">
+
+    <div class="ornament">✦</div>
+
+    <h2>The Wedding Ceremony</h2>
+
+    <p class="venue-name">
+      At Our Residence...
+    </p>
+
+    <p>December 20, 2027 | 11:00 AM – 4:00 PM</p>
+
+    <a
+      class="royal-button"
+      href="https://www.google.com/maps"
+      target="_blank"
+      rel="noopener">
+
+      VIEW LOCATION
+
+    </a>
+
+  </section>
+
+  <!-- RSVP -->
+  <section class="section">
+
+    <div class="ornament">♥</div>
+
+    <h2>Kindly RSVP</h2>
+
+    <p>
+      We would be delighted to celebrate with you. Please let us know if you can make it.
+    </p>
+
+    <form class="rsvp-form" id="rsvpForm">
+
+      <input
+        type="text"
+        id="guestName"
+        placeholder="Your Full Name"
+        required>
+
+      <select id="attendance" required>
+
+        <option value="">
+          Will you attend?
+        </option>
+
+        <option value="Yes">
+          Joyfully Accept
+        </option>
+
+        <option value="No">
+          Regretfully Decline
+        </option>
+
+      </select>
+
+      <input
+        type="number"
+        id="guestCount"
+        min="1"
+        max="10"
+        value="1"
+        placeholder="Number of Guests">
+
+      <button
+        type="submit"
+        class="royal-button">
+
+        SEND
+
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="ornament">❦</div>
+
+    <h2>Kasun &amp; Tharukshi</h2>
+
+    <p>
+      Thank you for being a part of our special day.
+    </p>
+
+    <p>Made with Love ♥</p>
+
+  </footer>
+
+</main>
+
+<!-- ====================================
+     JAVASCRIPT
+==================================== -->
+
+<script>
+
+const coupleScene = document.getElementById("coupleScene");
+const video = document.getElementById("coupleVideo");
+const playBtn = document.getElementById("playBtn");
+
+const opening = document.getElementById("opening");
+const seal = document.getElementById("waxSeal");
+const envelope = document.getElementById("envelope");
+
+const website = document.getElementById("website");
+
+let videoFinished = false;
+
+// CREATE FLOATING MAROON HEARTS ON COUPLE PAGE
+function createHearts() {
+  const heartsContainer = coupleScene;
+  const numberOfHearts = 20;
+
+  for (let i = 0; i < numberOfHearts; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "♥";
+    
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+    heart.style.animationDelay = Math.random() * 5 + "s";
+    
+    heartsContainer.appendChild(heart);
+  }
+}
+
+createHearts();
+
+// 1. PLAY ANIMATION AT FIRST AND THEN SHOW ENVELOPE SMOOTHLY
+function showEnvelope() {
+  if (videoFinished) return;
+  videoFinished = true;
+
+  coupleScene.classList.add("fade");
+  opening.classList.add("visible");
+
+  setTimeout(() => {
+    coupleScene.style.display = "none";
+  }, 1000);
+}
+
+// VIDEO PLAY LOGIC
+const playPromise = video.play();
+if (playPromise !== undefined) {
+  playPromise.catch(() => {
+    playBtn.style.display = "block";
+  });
+}
+
+playBtn.addEventListener("click", () => {
+  playBtn.style.display = "none";
+  video.play();
+});
+
+video.addEventListener("ended", showEnvelope);
+video.addEventListener("error", showEnvelope);
+
+// 2. OPEN ENVELOPE AND SHOW WEBSITE
+seal.addEventListener("click", () => {
+  envelope.classList.add("open");
+
+  setTimeout(() => {
+    opening.classList.add("hidden");
+    
+    setTimeout(() => {
+      opening.style.display = "none";
+      website.style.display = "block";
+      
+      setTimeout(() => {
+        website.classList.add("visible");
+      }, 50);
+
+      document.body.style.overflowY = "auto";
+      window.scrollTo(0, 0);
+    }, 1000);
+  }, 1800);
+});
+
+// COUNTDOWN TIMER
+const weddingDate = new Date("2027-12-20T11:00:00+05:30");
+
+function updateCountdown() {
+  const difference = Math.max(0, weddingDate.getTime() - Date.now());
+
+  document.getElementById("days").textContent = Math.floor(difference / 86400000);
+  document.getElementById("hours").textContent = String(Math.floor((difference / 3600000) % 24)).padStart(2, "0");
+  document.getElementById("minutes").textContent = String(Math.floor((difference / 60000) % 60)).padStart(2, "0");
+  document.getElementById("seconds").textContent = String(Math.floor((difference / 1000) % 60)).padStart(2, "0");
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// RSVP FORM DIRECT TO WHATSAPP (9476035836)[cite: 1]
+document.getElementById("rsvpForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("guestName").value;
+  const attendance = document.getElementById("attendance").value;
+  const count = document.getElementById("guestCount").value;
+
+  const phoneNumber = "94760358366";
+  const message = `Hello! Wedding RSVP Submission:%0A- Name: ${name}%0A- Attending: ${attendance}%0A- Guests: ${count}`;
+
+  window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+});
+
+</script>
+
+</body>
+</html>
